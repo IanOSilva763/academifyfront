@@ -15,7 +15,7 @@ export class AlunoService {
   listarAlunos(): Observable<Aluno[]> {
     return this.http.get<Aluno[]>(`${this.apiUrl}/listar`);
   }
-  // CADASTRAR NOVO ALUNO
+  // CADASTRAR ALUNO
   criarAluno(alunoData: any): Observable<any> {
     // Lógica para enviar os dados do aluno para o servidor
     return this.http.post(`${this.apiUrl}/incluir`, alunoData);
@@ -29,7 +29,7 @@ export class AlunoService {
   removerAluno(id: number): Observable<void> {
     const url = `${this.apiUrl}/remover`;
 
-    // Faz uma requisição POST para a URL apiurl/remover, enviando um JSON com o id
+    //enviando um json com o id
     return this.http.post<void>(url, { id });
   }
 

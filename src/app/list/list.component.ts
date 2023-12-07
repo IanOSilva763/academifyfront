@@ -27,6 +27,12 @@ export class ListComponent implements AfterViewInit {
   listarAlunos(): void {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       console.log('Dados recebidos:', alunos);
+  
+      alunos.forEach(aluno => {
+        // Certifique-se de que aluno.nascimento é um objeto Date ou uma string no formato de data adequado.
+        aluno.nascimento = new Date(aluno.nascimento);
+      });
+  
       this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -38,13 +44,17 @@ export class ListComponent implements AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  removerAluno(id: number): void {
-    this.alunoService.removerAluno(id).subscribe(
+  removerAluno(aluno: Aluno): void {
+    const alunoId = aluno.id as number;
+  
+    this.alunoService.removerAluno(alunoId).subscribe(
       () => {
         console.log('Aluno removido com sucesso!');
+        // Adicione qualquer lógica adicional aqui, se necessário
       },
       (error) => {
         console.error('Erro ao remover aluno:', error);
+        // Trate o erro conforme necessário
       }
     );
   }

@@ -1,1 +1,25 @@
-
+<div class="form-container">
+    <form [formGroup]="alunoForm" (ngSubmit)="atualizarAluno()" class="center-form">
+      <mat-form-field class="form-field">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Digite o nome" required>
+      </mat-form-field>
+  
+      <mat-form-field class="form-field">
+        <mat-label>Matrícula</mat-label>
+        <input matInput formControlName="matricula" placeholder="Digite a matrícula" required>
+      </mat-form-field>
+  
+      <mat-form-field class="form-field">
+        <mat-label>Data de Nascimento</mat-label>
+        <input matInput formControlName="nascimento" placeholder="dd/MM/yyyy" required>
+        <input matInput [value]="formatarDataVisualizacao(alunoForm.get('nascimento')?.value)" disabled>
+      </mat-form-field>
+  
+      <!-- Add other form fields as needed -->
+  
+      <div class="center-button">
+        <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+      </div>
+    </form>
+  </div>

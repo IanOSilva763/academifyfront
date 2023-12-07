@@ -33,6 +33,11 @@ export class IncluirAlunoComponent implements OnInit {
   salvarAluno() {
     if (this.alunoForm.valid) {
       const alunoData = this.alunoForm.value;
+
+      // Formatar a data para o formato 'yyyy-MM-dd'
+      const dataNascimentoFormatada = this.formatarData(alunoData.nascimento);
+      alunoData.nascimento = dataNascimentoFormatada;
+
       this.alunoService.criarAluno(alunoData).subscribe(
         (response: any) => {
           console.log('Aluno salvo com sucesso:', response);
@@ -43,6 +48,12 @@ export class IncluirAlunoComponent implements OnInit {
         }
       );
     }
+  }
+
+  // Função para formatar a data para 'yyyy-MM-dd'
+  formatarData(data: string): string {
+    const partes = data.split('/');
+    return `${partes[2]}-${partes[1]}-${partes[0]}`;
   }
 
   fecharMensagem() {

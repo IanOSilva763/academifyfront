@@ -21,7 +21,6 @@ import { IncluirAlunoComponent } from './incluir-aluno/incluir-aluno.component';
 import { ListComponent } from './list/list.component';
 import { VizualizarAlunoComponent } from './vizualizar-aluno/vizualizar-aluno.component';
 
-//import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.component';
 @NgModule({
   declarations: [
     AppComponent,

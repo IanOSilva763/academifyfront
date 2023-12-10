@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AlunoService } from '../aluno.service';
 
@@ -15,7 +16,7 @@ export class IncluirAlunoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private alunoService: AlunoService, private router: Router
+    private alunoService: AlunoService, private router: Router, private snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -61,9 +62,15 @@ export class IncluirAlunoComponent implements OnInit {
     this.cadastroSucesso = false;
   }
 
-  exibirDialogo() {
+  exibirDialogo(): void {
     const mensagem = 'Aluno cadastrado com sucesso!';
-    alert(mensagem);
-    this.router.navigate(['list']);
+    this.snackBar.open(mensagem, 'OK', {
+      duration: 2000, // Tempo de exibição em milissegundos (opcional)
+    });
+
+    // Redirecione para a página list após o fechamento do snackbar
+    this.snackBar._openedSnackBarRef?.onAction().subscribe(() => {
+      this.router.navigate(['list']);
+    });
   }
 }

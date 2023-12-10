@@ -44,22 +44,23 @@ export class ListComponent implements AfterViewInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  removerAluno(aluno: Aluno): void {
-    const alunoId = aluno.id as number;
-  
-    this.alunoService.removerAluno(alunoId).subscribe(
-      () => {
-        console.log('Aluno removido com sucesso!');
-        // Adicione qualquer lógica adicional aqui, se necessário
-      },
-      (error) => {
-        console.error('Erro ao remover aluno:', error);
-        // Trate o erro conforme necessário
-      }
-    );
-  }
+removerAluno(aluno: Aluno): void {
+  const alunoId = aluno.id as number;
+  this.alunoService.removerAluno(alunoId).subscribe(() => {
+    // Remover localmente da lista na interface do usuário
+    this.dataSource.data = this.dataSource.data.filter((a) => a.id !== alunoId);
+
+    // Atualizar a lista buscando novamente do servidor
+    this.listarAlunos();
+  });
+}
+
 
   editarAluno(alunoId: number): void {
     this.router.navigate(['/editaraluno', alunoId]);
+  }
+
+  navegarParaIncluirAluno(): void {
+    this.router.navigate(['incluir-aluno']);
   }
 }

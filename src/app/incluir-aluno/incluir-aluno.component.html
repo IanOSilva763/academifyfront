@@ -20,8 +20,4 @@
       <input matInput formControlName="dataCadastro" placeholder="Data de cadastro" [disabled]="true">
     </mat-form-field>
   
-    <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
-  </form>
-  
-  <app-alerta *ngIf="cadastroSucesso" [mensagem]="'Aluno cadastrado com sucesso!'" (fecharAlertaEvent)="fecharMensagem()"></app-alerta>
-
+    <button mat-raised-button color="primary" type="submit" (click)="exibirDialogo">Salvar Aluno</button>

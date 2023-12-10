@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlunoService } from '../aluno.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class IncluirAlunoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private alunoService: AlunoService
+    private alunoService: AlunoService, private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -58,5 +59,11 @@ export class IncluirAlunoComponent implements OnInit {
 
   fecharMensagem() {
     this.cadastroSucesso = false;
+  }
+
+  exibirDialogo() {
+    const mensagem = 'Aluno cadastrado com sucesso!';
+    alert(mensagem);
+    this.router.navigate(['list']);
   }
 }

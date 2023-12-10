@@ -49,7 +49,7 @@ export class EditarAlunoComponent implements OnInit {
     const alunoAtualizado: Aluno = { ...aluno };
 
     this.alunoService.atualizarAluno(alunoId, alunoAtualizado).subscribe(() => {
-      this.router.navigate(['/aluno-lista']);
+      this.router.navigate(['list']);
     });
   }
 

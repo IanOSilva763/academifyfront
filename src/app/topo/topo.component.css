@@ -1,0 +1,38 @@
+/* Estilo para a barra de navegação */
+.navbar {
+    background-color: #343a40; /* Cor de fundo da barra de navegação */
+    color: #fff; /* Cor do texto na barra de navegação */
+    border-bottom: 1px solid #ccc auto; /* Linha inferior */
+  }
+  
+  /* Estilo para a marca do Navbar (brand) */
+  .navbar-brand {
+    font-size: 24px;
+  }
+  
+  /* Estilo para o botão de alternância (navbar-toggler) */
+  .navbar-toggler {
+    background-color: #ffffff00; /* Cor de fundo do botão de alternância */
+  }
+  
+  /* Estilo para o ícone do botão de alternância (navbar-toggler-icon) */
+  .navbar-toggler-icon {
+    background-color: #868686; /* Cor do ícone do botão de alternância */
+  }
+  
+  /* Estilo para os itens do menu na barra de navegação */
+  .navbar-nav .nav-link {
+    color: #fff; /* Cor do texto dos itens do menu */
+  }
+  
+  /* Estilo para o item do menu ativo (active) */
+  .nav-link.active {
+    font-weight: bold; /* Estilo adicional para o item do menu ativo */
+    color: #007bff; /* Cor do texto do item do menu ativo */
+  }
+  
+  /* Estilo para o item do menu no hover (quando o mouse passa sobre ele) */
+  .nav-link:hover {
+    color: #007bff; /* Cor do texto no hover */
+  }
+  

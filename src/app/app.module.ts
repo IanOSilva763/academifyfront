@@ -18,7 +18,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EditarAlunoComponent } from './editar-aluno/editar-aluno.component';
 import { IncluirAlunoComponent } from './incluir-aluno/incluir-aluno.component';
+import { InicialComponent } from './inicial/inicial.component';
 import { ListComponent } from './list/list.component';
+import { TopoComponent } from './topo/topo.component';
 import { VizualizarAlunoComponent } from './vizualizar-aluno/vizualizar-aluno.component';
 
 @NgModule({
@@ -29,7 +31,9 @@ import { VizualizarAlunoComponent } from './vizualizar-aluno/vizualizar-aluno.co
     EditarAlunoComponent,
     VizualizarAlunoComponent,
     DateFormatDirective,
-    AlertaComponent
+    AlertaComponent,
+    TopoComponent,
+    InicialComponent
   ],
   imports: [
     BrowserModule,

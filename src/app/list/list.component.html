@@ -4,11 +4,94 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input />
   </mat-form-field>
 
-  <button mat-raised-button color="primary" class="center-button" (click)="navegarParaIncluirAluno()">Novo Aluno</button>
-</div>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #1a1a1a;
+      color: #fff;
+    }
+  
+    .filter-and-button-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #2c2c2c;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+  
+    .filter-input {
+      flex: 1;
+      margin-right: 20px;
+    }
+  
+    .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+        }
+  
+    .mat-elevation-z8 {
+      background-color: #2c2c2c;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      overflow: hidden;
+    }
+  
+    .futuristic-table-container {
+      margin-bottom: 20px;
+    }
+  
+    .mat-table {
+      width: 100%;
+      overflow: auto;
+    }
+  
+    .mat-header-cell,
+    .mat-cell {
+      color: #fff;
+      border-bottom: 1px solid #444;
+      text-align: left;
+      padding: 10px;
+    }
+  
+    .mat-header-cell {
+      font-weight: bold;
+    }
+  
+    .mat-row,
+    .mat-header-row {
+      display: flex;
+      width: 100%;
+    }
+  
+    .mat-row {
+      background-color: #444;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .mat-paginator {
+      margin-top: 20px;
+      color: #fff;
+    }
+  
+    .futuristic-action-button {
+      margin-right: 10px;
+      font-size: 14px;
+    }
+  </style>
 
-<div class="mat-elevation-z8">
-  <!-- O restante do seu código permanece o mesmo -->
+  <button class="cta-button" (click)="navegarParaIncluirAluno()">Novo Aluno</button>
 </div>
 
 <div class="mat-elevation-z8">
@@ -53,7 +136,7 @@
       </button>
       <button mat-button color="primary" (click)="editarAluno(row)">
         Editar
-      </button>
+      </button>     
       <button mat-button color="warn" (click)="removerAluno(row)">
         Remover
       </button>

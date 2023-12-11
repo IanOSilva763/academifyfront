@@ -13,32 +13,39 @@
             color: #fff;
         }
 
-        .form-container, .details-container {
-            max-width: 600px;
-            margin: auto;
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 40px;
             background-color: #2c2c2c;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
             border-radius: 10px;
         }
 
-        .mat-form-field {
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        input {
+        h1 {
             color: #fff;
+            font-size: 2em;
+            text-align: center;
         }
 
-        .center-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        p {
+            color: #bbb;
+            font-size: 1.2em;
+            text-align: center;
+            line-height: 1.5;
         }
 
-        button {
+        .cta-button {
+            display: inline-block;
             padding: 15px 30px;
+            margin-top: 30px;
             background-color: #4CAF50;
             color: #fff;
             text-decoration: none;
@@ -49,23 +56,19 @@
             cursor: pointer;
         }
 
-        button:hover {
+        .cta-button:hover {
             background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <!-- Container de Detalhes do Aluno -->
-    <div class="details-container" *ngIf="aluno">
-        <h2>Detalhes do Aluno</h2>
-        <p><strong>Nome:</strong> {{ aluno.nome }}</p>
-        <p><strong>Matrícula:</strong> {{ aluno.matricula }}</p>
-        <p><strong>Data de Nascimento:</strong> {{ aluno.nascimento | date: 'dd/MM/yyyy' }}</p>
-        <p><strong>Data de Cadastro:</strong> {{ aluno.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
-
-        <!-- Adicione outros detalhes do aluno conforme necessário -->
-
-        <button mat-raised-button color="accent" (click)="voltarParaLista()">Voltar para Lista</button>
-    </div>
+    <header>
+        <h1>Bem-vindo ao Academify</h1>
+    </header>
+    <section>
+        <h1>Cadastro de Alunos</h1>
+        <p>Explore nosso sistema avançado para cadastrar e gerenciar informações de alunos de forma eficiente.</p>
+        <a href="list" class="cta-button">Cadastrar Aluno</a>
+    </section>
 </body>
 </html>

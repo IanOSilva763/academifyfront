@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { format, parse } from 'date-fns';
 import { Aluno } from '../aluno.model';
 import { AlunoService } from '../aluno.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-editar-aluno',
@@ -17,7 +18,8 @@ export class EditarAlunoComponent implements OnInit {
     private fb: FormBuilder,
     private alunoService: AlunoService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -36,26 +38,28 @@ export class EditarAlunoComponent implements OnInit {
   obterDetalhesAluno(): void {
     const alunoId: number = +this.route.snapshot.paramMap.get('id')!;
     this.alunoService.obterAlunoPorId(alunoId).subscribe((aluno: Aluno) => {
-      // Não formate a data aqui, mantenha-a no formato original
       this.alunoForm.patchValue({ ...aluno });
     });
   }
 
-  atualizarAluno(): void {
-    const alunoId: number = +this.route.snapshot.paramMap.get('id')!;
-    const aluno: Aluno = this.alunoForm.value;
-
-    // Crie uma cópia do objeto aluno para não modificar o original
-    const alunoAtualizado: Aluno = { ...aluno };
-
-    this.alunoService.atualizarAluno(alunoId, alunoAtualizado).subscribe(() => {
-      this.router.navigate(['list']);
-    });
+  atualizarAluno() {
+    const alunoId = this.route.snapshot.params['id'];  // Obtenha o ID do aluno da rota
+    const alunoAtualizado = this.alunoForm.value;
+  
+    this.http.put(`http://localhost:8080/api/aluno/editar/${alunoId}`, alunoAtualizado)
+      .subscribe(
+        (response) => {
+          console.log('Aluno atualizado com sucesso:', response);
+        },
+        (error) => {
+          console.error('Erro ao atualizar aluno:', error);
+        }
+      );
   }
 
   formatarDataVisualizacao(data: string | Date | null): string {
     if (!data) {
-      return ''; // Ou qualquer valor padrão desejado para tratamento de nulo
+      return '';
     }
 
     const dataObj = new Date(data);

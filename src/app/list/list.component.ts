@@ -56,9 +56,11 @@ removerAluno(aluno: Aluno): void {
 }
 
 
-  editarAluno(alunoId: number): void {
-    this.router.navigate(['/editaraluno', alunoId]);
-  }
+editarAluno(aluno: Aluno): void {
+  const alunoId = aluno.id as number;
+  this.router.navigate(['/editar-aluno', alunoId]);
+}
+
 
   visualizarAluno(alunoId: number): void {
     this.router.navigate(['/vizualizar-aluno', alunoId]);

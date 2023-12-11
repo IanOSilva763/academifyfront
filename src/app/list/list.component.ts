@@ -60,6 +60,10 @@ removerAluno(aluno: Aluno): void {
     this.router.navigate(['/editaraluno', alunoId]);
   }
 
+  visualizarAluno(alunoId: number): void {
+    this.router.navigate(['/vizualizar-aluno', alunoId]);
+  }
+
   navegarParaIncluirAluno(): void {
     this.router.navigate(['incluir-aluno']);
   }

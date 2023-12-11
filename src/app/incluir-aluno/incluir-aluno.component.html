@@ -1,24 +1,23 @@
-<form [formGroup]="alunoForm" (ngSubmit)="salvarAluno()">
-    <mat-form-field>
+<div class="form-container">
+  <form [formGroup]="alunoForm" (ngSubmit)="salvarAluno()">
+    <mat-form-field class="mat-form-field">
       <mat-label>Nome</mat-label>
       <input matInput formControlName="nome" placeholder="Digite o nome" required>
     </mat-form-field>
   
-    <mat-form-field>
+    <mat-form-field class="mat-form-field">
       <mat-label>Matrícula</mat-label>
       <input matInput formControlName="matricula" placeholder="Digite a matrícula" required>
     </mat-form-field>
   
-  <mat-form-field>
-    <mat-label>Data de Nascimento</mat-label>
-    <input matInput formControlName="nascimento" placeholder="DD/MM/YYYY" appDateFormat required>
-  </mat-form-field>
-  
-  
-    <mat-form-field>
-      <mat-label>Data de Cadastro</mat-label>
-      <input matInput formControlName="dataCadastro" placeholder="Data de cadastro" [disabled]="true">
+    <mat-form-field class="mat-form-field">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput formControlName="nascimento" placeholder="DD/MM/YYYY" appDateFormat required>
     </mat-form-field>
   
-    <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+    <div class="center-button">
+      <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+    </div>
+  </form>
+</div>
 

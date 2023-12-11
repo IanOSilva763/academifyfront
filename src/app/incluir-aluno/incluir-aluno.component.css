@@ -1,0 +1,12 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    max-width: 400px; /* ajuste conforme necessário */
+    margin-bottom: 15px;
+  }
+  

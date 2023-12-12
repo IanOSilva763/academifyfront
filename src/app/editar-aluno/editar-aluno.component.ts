@@ -1,10 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { format, parse } from 'date-fns';
 import { Aluno } from '../aluno.model';
 import { AlunoService } from '../aluno.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-editar-aluno',
@@ -43,7 +43,7 @@ export class EditarAlunoComponent implements OnInit {
   }
 
   atualizarAluno() {
-    const alunoId = this.route.snapshot.params['id'];  // Obtenha o ID do aluno da rota
+    const alunoId = this.route.snapshot.params['id'];
     const alunoAtualizado = this.alunoForm.value;
   
     this.http.put(`http://localhost:8080/api/aluno/editar/${alunoId}`, alunoAtualizado)

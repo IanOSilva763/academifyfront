@@ -36,7 +36,6 @@ export class IncluirAlunoComponent implements OnInit {
     if (this.alunoForm.valid) {
       const alunoData = this.alunoForm.value;
   
-      // Formatar a data para o formato 'yyyy-MM-dd'
       const dataNascimentoFormatada = this.formatarData(alunoData.nascimento);
       alunoData.nascimento = dataNascimentoFormatada;
   
@@ -44,7 +43,7 @@ export class IncluirAlunoComponent implements OnInit {
         (response: any) => {
           console.log('Aluno salvo com sucesso:', response);
           this.cadastroSucesso = true;
-          this.exibirDialogo(); // Chama o método para exibir o snackbar e redirecionar
+          this.exibirDialogo();
         },
         (error: any) => {
           console.error('Erro ao salvar aluno:', error);
@@ -54,7 +53,7 @@ export class IncluirAlunoComponent implements OnInit {
   }
   
 
-  // Função para formatar a data para 'yyyy-MM-dd'
+
   formatarData(data: string): string {
     const partes = data.split('/');
     return `${partes[2]}-${partes[1]}-${partes[0]}`;
@@ -63,9 +62,9 @@ export class IncluirAlunoComponent implements OnInit {
   exibirDialogo(): void {
     const mensagem = 'Aluno cadastrado com sucesso!';
     this.snackBar.open(mensagem, 'OK', {
-      duration: 2000, // Tempo de exibição em milissegundos (opcional)
+      duration: 2000,
     }).afterDismissed().subscribe(() => {
-      this.router.navigate(['list']); // Redireciona para a página de listagem após o fechamento do snackbar
+      this.router.navigate(['list']);
     });
   }
 }

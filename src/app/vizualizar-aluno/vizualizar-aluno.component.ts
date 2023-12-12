@@ -25,14 +25,12 @@ export class VizualizarAlunoComponent implements OnInit {
   obterDetalhesAluno(): void {
     const alunoId: number = +this.route.snapshot.paramMap.get('id')!;
     this.alunoService.obterAlunoPorId(alunoId).subscribe((aluno: Aluno) => {
-      // Certifique-se de que aluno.nascimento é um objeto Date ou uma string no formato de data adequado.
       aluno.nascimento = new Date(aluno.nascimento);
 
       this.aluno = aluno;
     });
   }
 
-  // Corrija o nome da função para voltarParaLista
   voltarParaLista(): void {
     this.router.navigate(['/list']);
   }

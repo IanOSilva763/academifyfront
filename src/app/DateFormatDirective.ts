@@ -22,7 +22,6 @@ export class DateFormatDirective {
 
     this.ngControl.control?.setValue(formattedDate, { emitEvent: false });
     
-    // Restaura a posição do cursor
     input.setSelectionRange(cursorPosition, cursorPosition);
   }
 

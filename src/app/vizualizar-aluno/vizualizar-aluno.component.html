@@ -55,7 +55,6 @@
     </style>
 </head>
 <body>
-    <!-- Container de Detalhes do Aluno -->
     <div class="details-container" *ngIf="aluno">
         <h2>Detalhes do Aluno</h2>
         <p><strong>Nome:</strong> {{ aluno.nome }}</p>
@@ -63,7 +62,6 @@
         <p><strong>Data de Nascimento:</strong> {{ aluno.nascimento | date: 'dd/MM/yyyy' }}</p>
         <p><strong>Data de Cadastro:</strong> {{ aluno.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
 
-        <!-- Adicione outros detalhes do aluno conforme necessário -->
 
         <button mat-raised-button color="accent" (click)="voltarParaLista()">Voltar para Lista</button>
     </div>

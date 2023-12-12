@@ -18,7 +18,7 @@ export class ListComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private alunoService: AlunoService, private router: Router) { } // Injete o Router no construtor
+  constructor(private alunoService: AlunoService, private router: Router) { }
 
   ngAfterViewInit() {
     this.listarAlunos();
@@ -29,7 +29,6 @@ export class ListComponent implements AfterViewInit {
       console.log('Dados recebidos:', alunos);
   
       alunos.forEach(aluno => {
-        // Certifique-se de que aluno.nascimento é um objeto Date ou uma string no formato de data adequado.
         aluno.nascimento = new Date(aluno.nascimento);
       });
   
@@ -47,10 +46,8 @@ export class ListComponent implements AfterViewInit {
 removerAluno(aluno: Aluno): void {
   const alunoId = aluno.id as number;
   this.alunoService.removerAluno(alunoId).subscribe(() => {
-    // Remover localmente da lista na interface do usuário
     this.dataSource.data = this.dataSource.data.filter((a) => a.id !== alunoId);
 
-    // Atualizar a lista buscando novamente do servidor
     this.listarAlunos();
   });
 }
